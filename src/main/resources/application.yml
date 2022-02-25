@@ -1,0 +1,3 @@
+elastic-config:
+  connection-url: localhost:9200
+  index-name: blog
