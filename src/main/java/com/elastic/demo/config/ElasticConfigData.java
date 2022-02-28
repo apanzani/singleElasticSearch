@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class ElasticConfigData {
 
     private String indexName;
+    private String indexNameProduct;
     private String connectionUrl;
 
 }
