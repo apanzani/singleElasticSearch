@@ -12,5 +12,6 @@ public class ElasticConfigData {
     private String indexName;
     private String indexNameProduct;
     private String connectionUrl;
+    private String commaDelimiter;
 
 }

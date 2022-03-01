@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.elasticsearch.core.SearchHit;
+import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
@@ -52,5 +54,22 @@ public class ProductSearchServiceIndexTest {
         notNull(productIndexBulk, "Lista di prodotti null");
     }
 
+    @Test
+    void testFindProductsName(){
 
+        SearchHits<Product> java = productSearchService.findByProductName("Java");
+        notNull(java,"No hits found!");
+    }
+
+    @Test
+    void testFindProductsByBrand(){
+        List<SearchHit<Product>> rizzoli = productSearchService.findProductsByBrand("Rizzoli");
+        notNull(rizzoli,"No list of hits found!");
+    }
+
+    @Test
+    void testFindByProductPrice(){
+        SearchHits<Product> byProductPrice = productSearchService.findByProductPrice();
+        notNull(byProductPrice,"No products found!");
+    }
 }
